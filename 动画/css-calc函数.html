@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+	<style>
+		/* Just some demo styling */
+* {
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.8rem;
+	background: #222;
+}
+h1 {
+	font-family: Merriweather, serif;
+	font-size: 3.5rem;
+	margin-top: 0;
+}
+p {
+	text-align: justify;
+	hyphens: auto;
+}
+p:first-child {
+	margin-top: 0;
+}
+p:last-child {
+	margin-bottom: 0;
+}
+strong {
+	font-weight: 600;
+}
+#main {
+	background: #f1f1f1;
+	border: 2px solid #00b3ff;
+	border-radius: 6px;
+	box-shadow: 0 0 25px rgba(0,0,0,.8);
+}
+.fixed {
+	width: 200px;
+	height: 200px;
+	background: #ffcc00;
+	box-shadow: 0 5px 10px rgba(0,0,0,.5);
+	color: #222;
+	border: 2px solid rgba(0,0,0,.2);
+	border-radius: 6px;
+	padding: 20px;
+	font-size: 0.9em;
+}
+.fixed.tomatoes {
+	top: 300px;
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+}
+.fixed img {
+	box-shadow: 0 5px 10px rgba(0,0,0,.5);
+	border-radius: 6px;
+	width: 100%;
+}
+.fixed p {
+	margin: 0;
+	text-align: left;
+}
+
+/* THE IMPORTANT PART */
+#main {
+	max-width: 800px;
+	margin: 10px auto;
+	padding: 40px;
+}
+#content {
+	padding-right: 240px;
+}
+/* CSS calc() magic starts… */
+.fixed {
+	position: fixed;
+	top: 50px;
+	right: calc(50% - 400px + 40px);
+	/* 50% - half of container (#main) width + margin to right */
+}
+@media (max-width: 800px) {
+	.fixed {
+		right: 40px;
+	}
+}
+	</style>
+</head>
+<body>
+	<main id="main">
+		<section id="content">
+			<p>
+				<strong>A use case for the calc() function is aligning elements with a fixed position. For example, if you have a content wrapper with fluid spacing to the left and right, and you want to precisely align a fixed element inside of that wrapper — you’re going to have a hard time figuring out which value to choose for the “right” or “left” property. With calc(), you can combine relative and absolute values to perfectly align the element.</strong>
+			</p>
+			<p>
+				Bacon ipsum dolor amet ham hock landjaeger tail hamburger kielbasa. Chuck hamburger short ribs, cupim frankfurter tri-tip drumstick tongue rump brisket jerky ground round fatback corned beef. Short loin short ribs spare ribs porchetta, sausage alcatra ball tip turkey pork loin. Alcatra sirloin prosciutto, ribeye bresaola flank fatback. Beef ribs prosciutto alcatra spare ribs porchetta sirloin corned beef drumstick cow pig ham hock biltong short loin short ribs. Chicken tri-tip rump filet mignon short loin salami.
+			</p>
+			<p>
+				Alcatra landjaeger andouille chuck brisket. Pork belly ham capicola, tri-tip picanha venison hamburger beef ribs beef pastrami short ribs tongue jowl. Picanha shankle pig sausage ball tip pancetta. Picanha beef ribs pastrami jerky, biltong doner sirloin tri-tip tenderloin leberkas shankle sausage.
+			</p>
+			<p>
+				Rump capicola pork, beef chuck ham doner pork loin. Chicken boudin landjaeger, prosciutto sausage jowl ham doner ground round kevin fatback cow drumstick beef ribs. Ham tri-tip picanha, swine short ribs jerky filet mignon leberkas strip steak venison ball tip jowl ham hock. Pork beef tongue pastrami, flank salami prosciutto ham hock ball tip. Pancetta venison drumstick turkey shank jerky sirloin, landjaeger strip steak hamburger meatball alcatra. Salami beef ribs meatball short ribs kielbasa meatloaf shankle.
+			</p>
+			<p>
+				Cow shank ground round alcatra andouille bacon turducken tri-tip porchetta. Pork chop salami brisket cow. Turkey t-bone porchetta beef, prosciutto kielbasa pancetta tail corned beef brisket frankfurter shoulder meatball pastrami turducken. Pig jerky fatback pork belly meatball porchetta turkey salami ham hock filet mignon ground round shank shoulder t-bone prosciutto. T-bone tail swine spare ribs meatloaf andouille ham pastrami tongue porchetta beef ribs picanha alcatra. Swine cupim boudin doner shank andouille. Pork belly leberkas kielbasa doner meatloaf drumstick sausage spare ribs jowl biltong turducken.
+			</p>
+			<p>
+				Rump capicola pork, beef chuck ham doner pork loin. Chicken boudin landjaeger, prosciutto sausage jowl ham doner ground round kevin fatback cow drumstick beef ribs. Ham tri-tip picanha, swine short ribs jerky filet mignon leberkas strip steak venison ball tip jowl ham hock. Pork beef tongue pastrami, flank salami prosciutto ham hock ball tip. Pancetta venison drumstick turkey shank jerky sirloin, landjaeger strip steak hamburger meatball alcatra. Salami beef ribs meatball short ribs kielbasa meatloaf shankle.
+			</p>
+			<p>
+				Cow shank ground round alcatra andouille bacon turducken tri-tip porchetta. Pork chop salami brisket cow. Turkey t-bone porchetta beef, prosciutto kielbasa pancetta tail corned beef brisket frankfurter shoulder meatball pastrami turducken. Pig jerky fatback pork belly meatball porchetta turkey salami ham hock filet mignon ground round shank shoulder t-bone prosciutto. T-bone tail swine spare ribs meatloaf andouille ham pastrami tongue porchetta beef ribs picanha alcatra. Swine cupim boudin doner shank andouille. Pork belly leberkas kielbasa doner meatloaf drumstick sausage spare ribs jowl biltong turducken.
+			</p>
+		</section>
+		<aside class="fixed" contenteditable>
+			<p>I’ll stay here. You can edit me, btw… ;)</p>
+		</aside>
+		<aside class="fixed tomatoes">
+			<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/tomatoes.jpg" />
+		</aside>
+	</main>
+</body>
+</html>
