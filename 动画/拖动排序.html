@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖动排序</title>
+	<script type="text/javascript" src="./jquery-2.1.4.js"></script>
+	<script src="./jquery-ui.js"></script>
+	<style>
+		* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 20px;
+  max-width: 980px;
+  margin: auto;
+  line-height: 1.3;
+}
+
+.container {
+	counter-reset: issues 0 examples 0;
+}
+
+.issue:before {
+	counter-increment: issues 1;
+	content: "Issue " counter(issues, decimal);
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: darkred;
+}
+
+.issue {
+  background: lightpink;
+  padding: 7px;
+  border-left: hotpink solid 8px;
+}
+
+.example:before {
+	counter-increment: examples 1;
+	content: "Example " counter(examples, decimal);
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: firebrick;
+}
+
+.example {
+  background: #fff159;
+  padding: 7px;
+  border-left: orange solid 8px;
+}
+
+p:active {
+  cursor: move;
+}
+
+.p {
+  font-size: 13px;
+}
+	</style>
+</head>
+<body>
+	<div class="container sortable">
+  <h1>CSS Counters drag-and-drop demonstration</h1>
+  <h2>Drag the "issues" and "examples" to reorder them. The numbers will change.</h2>
+  <div class="p">Demo by Louis Lazaris. <a href="http://www.sitepoint.com/understanding-css-counters-and-their-use-cases" target="_blank">See article</a>.</div>
+  <p class="issue">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+  
+  <p class="example">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+  
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+  <p class="issue">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+  
+  <p class="example">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+  
+  <p class="issue">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+  
+  <p class="example">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+  
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+  <p class="issue">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+  
+  <p class="example">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+</div>
+<div class="container sortable">
+  <h2>Issues List</h2>
+  <p class="issue">Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.Pellentesque habitant morbi tristique senectus et netus et malesuada.</p>
+
+</div>
+
+<script type="text/javascript">
+	$(function() {
+  $('.sortable').sortable({
+    cancel: 'h1, h2, .p'
+  });
+  $('.sortable').disableSelection();
+});
+</script>
+</body>
+</html>
